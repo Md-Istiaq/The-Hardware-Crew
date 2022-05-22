@@ -1,6 +1,6 @@
 import React from 'react';
 import Banner from './Banner/Banner';
-import Parts from './Banner/Parts/Parts';
+import Parts from './Parts/Parts';
 
 const Home = () => {
     return (
