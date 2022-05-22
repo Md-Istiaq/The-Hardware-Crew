@@ -1,0 +1,26 @@
+[
+    {
+        "img":"https://www.startech.com.bd/image/cache/catalog/ssd/kingston/kingston-1tb-nvme-se-2280-pcie-ssd/kingston-1tb-nvme-se-2280-pcie-ssd-01-228x228.jpg",
+        "name":"1TB NVMe SE 2280 PCIe SSD",
+        "description":"MPN: SNVS/1000G Model: 1TB NVMe SE 2280 PCIe SSD NVMe PCIe Performance SSD Up to 2,100 MB/s Read Speed Up to 1,700 MB/s Write Speed Faster than a SATA-based SSD",
+        "minimumQuantity":100,
+        "Quantity":10000,
+        "price":50
+    },
+    {
+        "img":"https://www.startech.com.bd/image/cache/catalog/motherboard/gigabyte/x570-aorus-xtreme/x570-aorus-xtreme-500x500.jpg",
+        "name":"Xtreme DDR4 AM4 Socket AMD Motherboard",
+        "description":"Model: Gigabyte X570 Aorus Xtreme Supports AMD Ryzen 5000 Series/ AMD Ryzen 2nd & 3rd Generation Processors Chipset AMD X570 Dual Channel ECC/ Non-ECC Thermal Reactive Armor Design",
+        "minimumQuantity":110,
+        "Quantity":15000,
+        "price":120
+    },
+    {
+        "img":"https://www.startech.com.bd/image/cache/catalog/ram/team/elite-32gb-3200mhz-laptop/elite-32gb-3200mhz-laptop-500x500.jpg",
+        "name":"32GB 3200MHz DDR4 LAPTOP RAM",
+        "description":"MPN: TED432G3200C22-S01 Model:TEAM ELITE 32GB 3200MHz CAS Latency:22-22-22-52 1.2V memory module Massive 32GB Kit Lifetime warranty Dimension :67.6 x 30 mm",
+        "minimumQuantity":132,
+        "Quantity":12570,
+        "price":40
+    }
+]
