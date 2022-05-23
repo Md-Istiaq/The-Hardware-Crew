@@ -7,6 +7,7 @@ import SignUp from '../src/Pages/SignUp/SignUp'
 import Navbar from './Pages/Shared/Navbar';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Blogs from './Pages/Blogs';
 function App() {
   return (
     <div className='App'>
@@ -14,6 +15,7 @@ function App() {
      <Routes>
        <Route path='/' element={<Home/>}></Route>
        <Route path='/home' element={<Home></Home>}></Route>
+       <Route path='/blogs' element={<Blogs></Blogs>}></Route>
        <Route path='/login' element={<Login></Login>}></Route>
        <Route path='/signup' element={<SignUp></SignUp>}></Route>
        <Route path='/part/:id' element={<Purchase/>}></Route>
