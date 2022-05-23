@@ -5,6 +5,7 @@ import auth from '../../_firebase.init';
 import { useForm } from "react-hook-form";
 import {Link, useNavigate} from 'react-router-dom'
 import { async } from '@firebase/util';
+import Loading from '../Shared/Loading';
 const SignUp = () => {
     const [signInWithGoogle, Guser, Gloading, Gerror] = useSignInWithGoogle(auth);
     const [
@@ -23,7 +24,7 @@ const SignUp = () => {
        await updateProfile(data.name)
     };
     if(Gloading || loading){
-        return <button class="btn btn-square loading">Loading</button>
+        return <Loading></Loading>
     }
     if(Gerror || error){
         alert(Gerror || error)

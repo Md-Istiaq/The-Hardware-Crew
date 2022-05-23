@@ -1,10 +1,18 @@
+import { signOut } from 'firebase/auth';
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
+import auth from '../../_firebase.init';
 const Navbar = () => {
+  const [user] = useAuthState(auth)
+  const LogOut = () =>{
+    signOut(auth)
+}
     const menuItems = <>
     <li class="btn btn-primary uppercase font-bold bg-gradient-to-r from-accent to-primary hover:from-pink-500 hover:to-yellow-500 rounded-3xl hover:text-primary  mr-1"><Link to="/home">Home</Link></li>
     <li class="btn btn-primary uppercase font-bold bg-gradient-to-r from-accent to-primary hover:from-pink-500 hover:to-yellow-500 rounded-3xl hover:text-primary  mr-1"><Link to="/blogs">Blogs</Link></li>
-    <li class="btn btn-primary uppercase font-bold bg-gradient-to-r from-accent to-primary hover:from-pink-500 hover:to-yellow-500 rounded-3xl hover:text-primary  mr-1"><Link to="/login">Log In</Link></li>
+    <li class="btn btn-primary uppercase font-bold bg-gradient-to-r from-accent to-primary hover:from-pink-500 hover:to-yellow-500 rounded-3xl hover:text-primary  mr-1"><Link to="/myportfolio">My Portfolio</Link></li>
+    <li class="btn btn-primary uppercase font-bold bg-gradient-to-r from-accent to-primary hover:from-pink-500 hover:to-yellow-500 rounded-3xl hover:text-primary mr-1">{user ? <button class="btn btn-primary uppercase font-bold bg-gradient-to-r from-accent to-primary hover:from-pink-500 hover:to-yellow-500 rounded-3xl hover:text-primary mr-1" onClick={LogOut}>Sign Out</button> : <Link to="/login">Log in</Link>}</li>
     </>
     return (
 <div class="navbar bg-base-100">

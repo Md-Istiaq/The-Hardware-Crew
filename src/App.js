@@ -9,6 +9,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Blogs from './Pages/Blogs';
 import PageNotFound from './Pages/PageNotFound';
+import MyPortfolio from './Pages/MyPortfolio/MyPortfolio';
+import RequirAuth from './Pages/Login/RequirAuth';
 function App() {
   return (
     <div className='App'>
@@ -17,9 +19,14 @@ function App() {
        <Route path='/' element={<Home/>}></Route>
        <Route path='/home' element={<Home></Home>}></Route>
        <Route path='/blogs' element={<Blogs></Blogs>}></Route>
+       <Route path='/myportfolio' element={<MyPortfolio/>}></Route>
        <Route path='/login' element={<Login></Login>}></Route>
        <Route path='/signup' element={<SignUp></SignUp>}></Route>
-       <Route path='/part/:id' element={<Purchase/>}></Route>
+       <Route path='/part/:id' element={
+         <RequirAuth>
+           <Purchase/>
+         </RequirAuth>
+       }></Route>
        <Route path='*' element={<PageNotFound></PageNotFound>}></Route>
      </Routes>
      <ToastContainer />
