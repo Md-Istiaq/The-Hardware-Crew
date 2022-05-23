@@ -3,6 +3,7 @@ import AboutUs from './AboutUs/AboutUs';
 import Banner from './Banner/Banner';
 import Footer from './Footer/Footer';
 import Parts from './Parts/Parts';
+import Review from './Review/Review';
 import StayUpdated from './StayUpdated/StayUpdated';
 
 const Home = () => {
@@ -12,6 +13,7 @@ const Home = () => {
            <Parts></Parts>
            <AboutUs></AboutUs>
            <StayUpdated></StayUpdated>
+           <Review></Review>
            <Footer></Footer>
         </div>
     );
