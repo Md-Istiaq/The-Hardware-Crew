@@ -1,0 +1,20 @@
+[
+    {
+        "name":"jonas",
+        "img":"https://i.ibb.co/QD5vVBF/customer-1.jpg",
+        "review":"Contrary to what many others may say, I truthfully had a very positive experience with HP. I had an issue with my charger specifically. They were quick to answer my questions through live chat and really went above and beyond to help get it resolved. They shipped me a new one with overnight shipping. Basing my review off of the quality of my computer and the quality of the customer service I've received on it, I can conclude that they remain committed to their customers and stand behind their product.",
+        "ratings":4.8
+    },
+    {
+        "name":"david",
+        "img":"https://i.ibb.co/6mqDL9v/my-bg2.jpg",
+        "review":"It was great to find a place where they could fix my MacBook after Apple suggested there was nothing to do but buy a new computer. They have great customer service and accurate information on the status of your repair.The only thing was that the keyboard was left seemingly un cleaned. There are a few letters that are not working properly when typing.",
+        "ratings":4.6
+    },
+    {
+        "name":"jonson",
+        "img":"https://i.ibb.co/hyNMYTf/my-bg.jpg",
+        "review":"Laptop was not charging, the power connection plug was broken, I got on line with them, then got a call, very respectful and professional. I decided to pass by to get a quote on my repair. It was quick, cheaper than other quotes. They said a couple of days to repair, it was s couple of days. Received email telling me laptop was ready. Great service, machined repaired, working great, no issues. Will recommend them to everyone. Thanks.",
+        "ratings":4.5
+    }
+]
