@@ -4,6 +4,8 @@ import Home from './Pages/Home/Home';
 import Purchase from './Pages/Home/Parts/Purchase';
 import Login from './Pages/Login/Login';
 import Navbar from './Pages/Shared/Navbar';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function App() {
   return (
     <div className='App'>
@@ -14,6 +16,7 @@ function App() {
        <Route path='/login' element={<Login></Login>}></Route>
        <Route path='/part/:id' element={<Purchase/>}></Route>
      </Routes>
+     <ToastContainer />
     </div>
   );
 }

@@ -1,9 +1,10 @@
 import React from 'react';
 import PrimaryButton from '../../Shared/PrimaryButton';
+import { ToastContainer, toast } from 'react-toastify';
 import './StayUpdated.css'
 const StayUpdated = () => {
     const handleButton = () =>{
-        alert("Thanks for connecting with us")
+        toast("Thanks for connecting with us")
     }
     return (
         <div class="hero min-h-screen bg-white stay-update">
@@ -30,7 +31,7 @@ const StayUpdated = () => {
                   </label>
                 </div>
                 <div class="form-control mt-6">
-                  <button onClick={handleButton} class="btn btn-primary uppercase font-bold bg-gradient-to-r from-accent to-primary hover:from-pink-500 hover:to-yellow-500 rounded-3xl hover:text-primary">Login</button>
+                  <button onClick={handleButton} class="btn btn-primary uppercase font-bold bg-gradient-to-r from-accent to-primary hover:from-pink-500 hover:to-yellow-500 rounded-3xl hover:text-primary">Get updated</button>
                 </div>
               </div>
             </div>
