@@ -9,7 +9,7 @@ const Review = () => {
     } , [])
     return (
         <div>
-            <h1 className='text-4xl m-5 text-primary'>Our Customer's Review</h1>
+            <h1 className='text-4xl m-10 text-primary'>Our Customer's Review</h1>
             <div className='lg:grid lg:grid-cols-3 m-5'>
                 {
                     reviews.map(review => 
