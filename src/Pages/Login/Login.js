@@ -31,30 +31,30 @@ const Login = () => {
         Error=<p className='text-danger'>{Gerror?.message || error?.message}</p>
     }
     return (
-        <div className='LogIn hero min-h-screen bg-base-200'>
-    <form onSubmit={handleSubmit(onSubmit)} class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 LogIn-filed">
+        <div className='LogIn hero min-h-screen '>
+    <form onSubmit={handleSubmit(onSubmit)} class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100  login-from">
     <h1 className='text-3xl mx-auto text-primary'>Log In</h1>
       <div class="card-body">
         <div class="form-control">
           <label class="label">
             <span class="label-text text-white">Email</span>
           </label>
-          <input type="text" placeholder="email" class="input input-bordered LogIn-filed" {...register("email", { required: true })}  />
+          <input type="text" placeholder="email" class="input input-bordered login-from" {...register("email", { required: true })}  />
         </div>
         <div class="form-control">
           <label class="label">
             <span class="label-text text-white">Password</span>
           </label>
-          <input type="text" placeholder="password" class="input input-bordered LogIn-filed" {...register("password", { required: true })}  />
+          <input type="text" placeholder="password" class="input input-bordered login-from text-white" {...register("password", { required: true })}  />
           <label class="label">
             <a href="#" class="label-text-alt link link-hover text-white">Forgot password?</a>
           </label>
         </div>
-        <p><small>New to Dental Clinic? <Link to='/signup' className='link hover:text-primary'>Create an account</Link></small> </p>
+        <p className='text-white'><small className="login-from">New to Dental Clinic? <Link to='/signup' className='link login-from'>Create an account</Link></small> </p>
         <input type="submit" value="Log In" class="btn btn-primary uppercase font-bold bg-gradient-to-r from-accent to-primary hover:from-pink-500 hover:to-yellow-500 rounded-3xl hover:text-primary mt-5" />
         {Error}
       </div>
-      <p>---------------------------or---------------------------</p>
+      <p className='text-white'>---------------------------or---------------------------</p>
       <button onClick={() => signInWithGoogle()} class="btn btn-primary uppercase font-bold bg-gradient-to-r from-accent to-primary hover:from-pink-500 hover:to-yellow-500 rounded-3xl hover:text-primary mb-5">Continue With Google</button>
       </form>
       </div>

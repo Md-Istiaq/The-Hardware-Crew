@@ -11,6 +11,10 @@ import Blogs from './Pages/Blogs';
 import PageNotFound from './Pages/PageNotFound';
 import MyPortfolio from './Pages/MyPortfolio/MyPortfolio';
 import RequirAuth from './Pages/Login/RequirAuth';
+import Dashboard from './Pages/Dashboard/Dashboard';
+import MyOrders from './Pages/Dashboard/MyOrders';
+import Addreview from './Pages/Dashboard/Addreview';
+
 function App() {
   return (
     <div className='App'>
@@ -27,6 +31,14 @@ function App() {
            <Purchase/>
          </RequirAuth>
        }></Route>
+             <Route path='/dashboard' element={
+        <RequirAuth>
+          <Dashboard/>
+        </RequirAuth>
+      }>
+                <Route index element={<MyOrders/>} />
+        <Route path='addreview' element={ <Addreview/>} />
+      </Route>
        <Route path='*' element={<PageNotFound></PageNotFound>}></Route>
      </Routes>
      <ToastContainer />

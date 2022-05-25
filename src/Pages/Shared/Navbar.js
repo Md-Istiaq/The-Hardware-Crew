@@ -12,6 +12,7 @@ const Navbar = () => {
     <li class="btn btn-primary uppercase font-bold bg-gradient-to-r from-accent to-primary hover:from-pink-500 hover:to-yellow-500 rounded-3xl hover:text-primary  mr-1"><Link to="/home">Home</Link></li>
     <li class="btn btn-primary uppercase font-bold bg-gradient-to-r from-accent to-primary hover:from-pink-500 hover:to-yellow-500 rounded-3xl hover:text-primary  mr-1"><Link to="/blogs">Blogs</Link></li>
     <li class="btn btn-primary uppercase font-bold bg-gradient-to-r from-accent to-primary hover:from-pink-500 hover:to-yellow-500 rounded-3xl hover:text-primary  mr-1"><Link to="/myportfolio">My Portfolio</Link></li>
+    {user && <li class="btn btn-primary uppercase font-bold bg-gradient-to-r from-accent to-primary hover:from-pink-500 hover:to-yellow-500 rounded-3xl hover:text-primary  mr-1"><Link to="/dashboard">Dashboard</Link></li>}
     <li class="btn btn-primary uppercase font-bold bg-gradient-to-r from-accent to-primary hover:from-pink-500 hover:to-yellow-500 rounded-3xl hover:text-primary mr-1">{user ? <button class="btn btn-primary uppercase font-bold bg-gradient-to-r from-accent to-primary hover:from-pink-500 hover:to-yellow-500 rounded-3xl hover:text-primary mr-1" onClick={LogOut}>Sign Out</button> : <Link to="/login">Log in</Link>}</li>
     </>
     return (
