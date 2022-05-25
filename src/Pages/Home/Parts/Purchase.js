@@ -74,13 +74,13 @@ const Purchase = () => {
           <label class="label">
             <span class="label-text">Part</span>
           </label>
-          <input type="text" value={part.name}  placeholder="part" class="input input-bordered" {...register("part")}   />
+          <input type="text" value={part.name}  placeholder="part" class="input input-bordered" {...register("part")}  readOnly />
         </div>
         <div class="form-control">
           <label class="label">
             <span class="label-text">Price per pice</span>
           </label>
-          <input type="text" value={part.price}  placeholder="price" class="input input-bordered" {...register("price")}  />
+          <input type="text" value={part.price}  placeholder="price" class="input input-bordered" {...register("price")} readOnly />
         </div>
         <div class="form-control">
           <label class="label">
