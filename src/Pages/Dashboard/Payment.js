@@ -1,6 +1,9 @@
 import React,{useEffect , useState} from 'react';
 import { useParams } from 'react-router-dom';
-
+import { loadStripe } from '@stripe/stripe-js';
+import { Elements } from '@stripe/react-stripe-js';
+import CheckoutForm from './CheckoutFrom'
+const stripePromise = loadStripe('pk_test_51L48o3LH09G82JEzdGxt01wiRZOlDF9us8aAEyJgLi05rGsBy497JkLqaZUFETff8Pp1RXS4UCK9b7XMLobrQrA100VrLLyNz3');
 const Payment = () => {
     const {id} = useParams()
     const [order , setOrder] = useState([])
@@ -23,6 +26,16 @@ const Payment = () => {
                     <p className="text-primary font-bold">Hi, {order.name}</p>
                     <h2 class="card-title">Please Pay for {order.part}</h2>
                     <p>Please pay: ${order.price}</p>
+                    <div class="card-actions justify-end">
+                              <button class="btn btn-primary uppercase font-bold bg-gradient-to-r from-accent to-primary hover:from-pink-500 hover:to-yellow-500 rounded-3xl hover:text-primary">Pay Now</button>
+                          </div>
+                          <div class="card flex-shrink-0 w-50 max-w-md shadow-2xl bg-base-100 bg-gradient-to-r from-accent to-primary hover:from-pink-500 hover:to-yellow-500 rounded-3xl hover:text-primary">
+                <div class="card-body">
+                <Elements stripe={stripePromise}>
+                        <CheckoutForm order={order} />
+                    </Elements>
+                </div>
+            </div>
                 </div>
             </div>
         </div>

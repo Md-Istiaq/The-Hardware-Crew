@@ -6,6 +6,7 @@ const MyProfile = () => {
     console.log(user)
     return (
         <div>
+            <h1>your Name:- {user.displayName}</h1>
             <h1>Your E-mail{user.email}</h1>
             
         </div>

@@ -80,7 +80,7 @@ const Purchase = () => {
           <label class="label">
             <span class="label-text ">Name</span>
           </label>
-          <input type="text" value={user.displayName}  placeholder="email" class="input input-bordered login-from" {...register("name")}  />
+          <input type="text" value={user.displayName}  placeholder="name" class="input input-bordered login-from" {...register("name")}  />
         </div>
         <div class="form-control">
           <label class="label">
