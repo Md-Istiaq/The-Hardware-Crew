@@ -1,28 +1,25 @@
 import React, { useEffect , useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../_firebase.init'
-import axios from 'axios';
+import Order from './Order';
 const MyOrders = () => {
     const [user] = useAuthState(auth)
     const [orders , setOrders] = useState([])
+    const email = user.email
     useEffect( () =>{
-        const getItems = async() =>{
-            const email = user.email
-            const url = `http://localhost:5000/myorders?email=${email}`
-            const {data} = await axios.get(url , {
-                headers:{
-                    authorization:`bearer`
-                }
-            })
-            setOrders(data)
-        }
-        getItems();
+        fetch(`http://localhost:5000/orders/${email}`)
+        .then(res => res.json())
+        .then(data => setOrders(data))
 
-    } ,[user])
-
+    } ,[])
     return (
         <div>
-            <h1>You have {orders.length}</h1>
+            <h1 className='text-2xl text-primary'>You have {orders.length} orders</h1>
+            <div className='grid grid-cols-3'>
+            {
+                orders.map(order => <Order order={order} key={order._id}></Order>)
+            }
+            </div>
         </div>
     );
 };

@@ -14,7 +14,12 @@ import RequirAuth from './Pages/Login/RequirAuth';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import MyOrders from './Pages/Dashboard/MyOrders';
 import Addreview from './Pages/Dashboard/Addreview';
-
+import AddProduct from './Pages/Dashboard/AddProduct';
+import MakeAdmin from './Pages/Dashboard/MakeAdmin'
+import ManageAllOrder from './Pages/Dashboard/ManageAllOrder';
+import MyProfile from './Pages/Dashboard/MyProfile'
+import ManageProduct from './Pages/Dashboard/ManageProduct'
+import Payment from './Pages/Dashboard/Payment';
 function App() {
   return (
     <div className='App'>
@@ -38,6 +43,12 @@ function App() {
       }>
                 <Route index element={<MyOrders/>} />
         <Route path='addreview' element={ <Addreview/>} />
+        <Route path='addproduct' element={<AddProduct/>}></Route>
+        <Route path='makeadmin' element={<MakeAdmin/>}></Route>
+        <Route path='manageorder' element={<ManageAllOrder/>}></Route>
+        <Route path='myprofile' element={<MyProfile/>}></Route>
+        <Route path='manageproduct' element={<ManageProduct/>}></Route>
+        <Route path='payment/:id' element={<Payment/>}></Route>
       </Route>
        <Route path='*' element={<PageNotFound></PageNotFound>}></Route>
      </Routes>

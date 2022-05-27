@@ -7,6 +7,7 @@ const Navbar = () => {
   const [user] = useAuthState(auth)
   const LogOut = () =>{
     signOut(auth)
+    localStorage.removeItem('accessToken')
 }
     const menuItems = <>
     <li class="btn btn-primary uppercase font-bold bg-gradient-to-r from-accent to-primary hover:from-pink-500 hover:to-yellow-500 rounded-3xl hover:text-primary  mr-1"><Link to="/home">Home</Link></li>
@@ -26,7 +27,7 @@ const Navbar = () => {
           {menuItems}
       </ul>
     </div>
-    <a class="btn btn-ghost normal-case text-xl">Dental Clinic</a>
+    <a class="btn btn-ghost normal-case text-xl">The Hardware Crew</a>
   </div>
   <div class="navbar-center hidden lg:flex">
     <ul class="menu menu-horizontal p-0">

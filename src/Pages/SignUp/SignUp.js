@@ -6,6 +6,8 @@ import { useForm } from "react-hook-form";
 import {Link, useNavigate} from 'react-router-dom'
 import { async } from '@firebase/util';
 import Loading from '../Shared/Loading';
+import {toast} from 'react-toastify'
+import useToken from '../../hooks/useToken'
 const SignUp = () => {
     const [signInWithGoogle, Guser, Gloading, Gerror] = useSignInWithGoogle(auth);
     const [
@@ -14,6 +16,7 @@ const SignUp = () => {
         loading,
         error,
       ] = useCreateUserWithEmailAndPassword(auth);
+      const [token] = useToken(user || Guser)
       const Navigate = useNavigate()
       const [updateProfile, updating, Uerror] = useUpdateProfile(auth);
 
@@ -27,7 +30,10 @@ const SignUp = () => {
         return <Loading></Loading>
     }
     if(Gerror || error){
-        alert(Gerror || error)
+        toast.error(Gerror || error)
+    }
+    if(user || Guser){
+      Navigate('/home')
     }
     return (
         <div className='LogIn hero min-h-screen bg-base-200'>
@@ -44,13 +50,13 @@ const SignUp = () => {
           <label class="label">
             <span class="label-text text-white">Email</span>
           </label>
-          <input type="text" placeholder="email" class="input input-bordered login-from" {...register("email", { required: true })}  />
+          <input type="text" placeholder="email" class="input input-bordered login-from " {...register("email", { required: true })}  />
         </div>
         <div class="form-control">
           <label class="label">
             <span class="label-text text-white">Password</span>
           </label>
-          <input type="text" placeholder="password" class="input input-bordered login-from" {...register("password", { required: true })}  />
+          <input type="text" placeholder="password" class="input input-bordered login-from text-white" {...register("password", { required: true })}  />
           <label class="label">
             <a href="#" class="label-text-alt link link-hover text-white">Forgot password?</a>
           </label>

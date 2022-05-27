@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import './Login.css'
 import auth from '../../_firebase.init';
 import Loading from '../Shared/Loading';
+import useToken from '../../hooks/useToken'
 const Login = () => {
     const [signInWithGoogle, Guser, Gloading, Gerror] = useSignInWithGoogle(auth);
     const [
@@ -14,13 +15,14 @@ const Login = () => {
         loading,
         error,
       ] = useSignInWithEmailAndPassword(auth);
+      const [token] = useToken(user || Guser)
       const Navigate = useNavigate()
       const location = useLocation()
       let from = location.state?.from?.pathname || "/";
       let Error;
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = data =>{ 
-        console.log(data)
+  
         signInWithEmailAndPassword(data.email,data.password)
         console.log(data.email , data.password)
     };
@@ -29,6 +31,9 @@ const Login = () => {
     }
     if(Gerror || error){
         Error=<p className='text-danger'>{Gerror?.message || error?.message}</p>
+    }
+    if(token){
+      Navigate(from , {replace:true})
     }
     return (
         <div className='LogIn hero min-h-screen '>
@@ -52,7 +57,7 @@ const Login = () => {
         </div>
         <p className='text-white'><small className="login-from">New to Dental Clinic? <Link to='/signup' className='link login-from'>Create an account</Link></small> </p>
         <input type="submit" value="Log In" class="btn btn-primary uppercase font-bold bg-gradient-to-r from-accent to-primary hover:from-pink-500 hover:to-yellow-500 rounded-3xl hover:text-primary mt-5" />
-        {Error}
+        <p className="text-white">{Error}</p>
       </div>
       <p className='text-white'>---------------------------or---------------------------</p>
       <button onClick={() => signInWithGoogle()} class="btn btn-primary uppercase font-bold bg-gradient-to-r from-accent to-primary hover:from-pink-500 hover:to-yellow-500 rounded-3xl hover:text-primary mb-5">Continue With Google</button>

@@ -23,11 +23,11 @@ const Addreview = () => {
 <div class="hero min-h-screen bg-base-200">
   <div class="hero-content flex-col lg:flex-col-reverse">
     <div class="text-center lg:text-left">
-      <h1 class="text-5xl font-bold">Login now!</h1>
-      <p class="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+      <h1 class="text-5xl font-bold">Tell us about your Experiences with us.</h1>
+      <p class="py-6">there is a from above/below . please give all the information and write your review so that we can reach more people. and your review will be shown in home page . you can check from there</p>
     </div>
     <form onSubmit={handleSubmit(onSubmit)} class="shadow-2xl w-full">
-    <h1 className='text-3xl mx-auto text-primary'>Place your order</h1>
+    <h1 className='text-3xl mx-auto text-primary'>Add your review</h1>
       <div class="card-body">
         <div class="form-control">
           <label class="label">

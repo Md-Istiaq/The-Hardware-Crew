@@ -6,15 +6,23 @@ import auth from '../../../_firebase.init'
 import { toast } from 'react-toastify';
 const Purchase = () => {
     const {id} = useParams()
-    const [part,setPart] = useState({})
-    const { register, handleSubmit ,formState: { errors }} = useForm();
+    const [part,setPart] = useState([])
+    const [partName , setpartName] = useState(' ')
+    const [price , setPrice] = useState(0)
     const [user] = useAuthState(auth)
 
     useEffect( () =>{
         fetch(`http://localhost:5000/parts/${id}`)
         .then(res => res.json())
-        .then(data => setPart(data))
+        .then(data => {
+          setPart(data)
+          setpartName(data.name)
+          setPrice(data.price)
+        })
     },[])
+    const { register, handleSubmit ,formState: { errors }} = useForm({
+
+    });
     const onSubmit = data => {
       const givenQuantity = parseInt(data.quantity)
       let minimum = parseInt(part.minimumQuantity)
@@ -27,13 +35,23 @@ const Purchase = () => {
       }
       else{
         console.log(data)
+        const newData = {
+            name:data.name,
+            email:data.email,
+            part:partName,
+          address:data.address,
+          phone:data.phone,
+          price:price,
+          quantity:data.quantity
+        }
+        console.log(newData)
         const url = `http://localhost:5000/orders`
         fetch(url ,{
           method:'POST',
           headers:{
               'content-type':'application/json'
           },
-          body:JSON.stringify(data)
+          body:JSON.stringify(newData)
       })
       .then(res => res.json())
       .then(result =>{
@@ -74,7 +92,7 @@ const Purchase = () => {
           <label class="label">
             <span class="label-text">Part</span>
           </label>
-          <input type="text" value={part.name}  placeholder="part" class="input input-bordered" {...register("part")}  readOnly />
+          <input type="text" value={part.name}  placeholder="part" class="input input-bordered" {...register("part")} readOnly  />
         </div>
         <div class="form-control">
           <label class="label">
