@@ -8,7 +8,7 @@ const Payment = () => {
     const {id} = useParams()
     const [order , setOrder] = useState([])
     useEffect( () =>{
-        const url =`http://localhost:5000/order/${id}`
+        const url =`https://dry-shelf-78411.herokuapp.com/order/${id}`
         fetch(url, {
             method: 'GET',
             headers: {
@@ -21,15 +21,14 @@ const Payment = () => {
     console.log(order)
     return (
         <div>
-            <div class="card w-50 max-w-md bg-base-100 shadow-xl my-12">
+            <div class="card w-50 max-w-md bg-base-100 shadow-xl my-12 border border-accent">
                 <div class="card-body">
                     <p className="text-primary font-bold">Hi, {order.name}</p>
                     <h2 class="card-title">Please Pay for {order.part}</h2>
                     <p>Please pay: ${order.price}</p>
                     <div class="card-actions justify-end">
-                              <button class="btn btn-primary uppercase font-bold bg-gradient-to-r from-accent to-primary hover:from-pink-500 hover:to-yellow-500 rounded-3xl hover:text-primary">Pay Now</button>
                           </div>
-                          <div class="card flex-shrink-0 w-50 max-w-md shadow-2xl bg-base-100 bg-gradient-to-r from-accent to-primary hover:from-pink-500 hover:to-yellow-500 rounded-3xl hover:text-primary">
+                          <div class="card flex-shrink-0 w-50 max-w-md shadow-2xl border border-accent rounded-3xl hover:text-primary">
                 <div class="card-body">
                 <Elements stripe={stripePromise}>
                         <CheckoutForm order={order} />

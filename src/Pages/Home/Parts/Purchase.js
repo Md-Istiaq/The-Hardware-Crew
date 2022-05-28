@@ -12,7 +12,7 @@ const Purchase = () => {
     const [user] = useAuthState(auth)
 
     useEffect( () =>{
-        fetch(`http://localhost:5000/parts/${id}`)
+        fetch(`https://dry-shelf-78411.herokuapp.com/parts/${id}`)
         .then(res => res.json())
         .then(data => {
           setPart(data)
@@ -45,7 +45,7 @@ const Purchase = () => {
           quantity:data.quantity
         }
         console.log(newData)
-        const url = `http://localhost:5000/orders`
+        const url = `https://dry-shelf-78411.herokuapp.com/orders`
         fetch(url ,{
           method:'POST',
           headers:{

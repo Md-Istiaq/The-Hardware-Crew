@@ -1,4 +1,4 @@
-import React from 'react';
+import React ,{useState,useEffect} from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import {useAuthState} from 'react-firebase-hooks/auth'
 import auth from '../../_firebase.init'
@@ -20,10 +20,10 @@ const Dashboard = () => {
       { user && <li><Link to="/dashboard">My Orders</Link></li>}
       <li><Link to="/dashboard/addreview">Add a Review</Link></li>
       { admin && <li><Link to="/dashboard/makeadmin">Make Admin</Link></li>}
-      {admin && <li><Link to="/dashboard/manageorder">Manage All Order</Link></li>}
+      { admin && <li><Link to="/dashboard/manageorder">Manage All Order</Link></li>}
       <li><Link to="/dashboard/myprofile">My Profile</Link></li>
-      {admin && <li><Link to="/dashboard/manageproduct">Manage Product</Link></li>}
-      {admin && <li><Link to="/dashboard/addproduct">Add Product</Link></li>}
+      { admin && <li><Link to="/dashboard/manageproduct">Manage Product</Link></li>}
+      { admin && <li><Link to="/dashboard/addproduct">Add Product</Link></li>}
 
      
     </ul>

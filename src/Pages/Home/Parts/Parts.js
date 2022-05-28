@@ -4,7 +4,7 @@ const Parts = () => {
     const[parts , setParts] = useState([])
     const Navigate = useNavigate()
     useEffect( () =>{
-        fetch(`http://localhost:5000/parts`)
+        fetch(`https://dry-shelf-78411.herokuapp.com/parts`)
         .then(res => res.json())
         .then(data => setParts(data))
     },[])

@@ -3,7 +3,7 @@ import React, { useEffect , useState }  from 'react';
 const ManageAllOrder = () => {
     const [orders , setOrders] = useState([])
     useEffect( () =>{
-        fetch(`http://localhost:5000/orders`)
+        fetch(`https://dry-shelf-78411.herokuapp.com/orders`)
         .then(res => res.json())
         .then(data => setOrders(data))
 
@@ -22,7 +22,6 @@ const ManageAllOrder = () => {
                           <p className='text-left'>Phone:-{order.phone}</p>
                           <p className='text-left'>Quantity:-{order.quantity}</p>
                           <div class="card-actions justify-end">
-                              <button class="btn btn-primary uppercase font-bold bg-gradient-to-r from-accent to-primary hover:from-pink-500 hover:to-yellow-500 rounded-3xl hover:text-primary">Delete</button>
                           </div>
                         </div>
                       </div>

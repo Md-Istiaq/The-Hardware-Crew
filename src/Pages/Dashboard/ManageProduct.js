@@ -3,14 +3,14 @@ import {toast} from 'react-toastify'
 const ManageProduct = () => {
     const[parts , setParts] = useState([])
     useEffect( () =>{
-        fetch(`http://localhost:5000/parts`)
+        fetch(`https://dry-shelf-78411.herokuapp.com/parts`)
         .then(res => res.json())
         .then(data => setParts(data))
     },[])
     const Delete = id =>{
         const proceed = window.confirm("are you sure you want to delete??")
         if(proceed){
-          const url = `http://localhost:5000/parts/${id}`
+          const url = `https://dry-shelf-78411.herokuapp.com/parts/${id}`
           fetch(url,{
             method:'DELETE'
           })
