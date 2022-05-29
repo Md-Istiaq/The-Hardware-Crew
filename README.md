@@ -1,6 +1,6 @@
 # The Hardware Crew
 
-(https://statuesque-naiad-058ff5.netlify.app/).
+(https://assignment12-9398a.web.app/).
 
 * you can add a review in dashboard
 * admin can add product in this website

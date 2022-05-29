@@ -1,4 +1,5 @@
 import React from 'react';
+import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import {Link , useLocation, useNavigate} from 'react-router-dom'
 import {useSignInWithGoogle} from 'react-firebase-hooks/auth'
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
@@ -9,6 +10,7 @@ import Loading from '../Shared/Loading';
 import useToken from '../../hooks/useToken'
 const Login = () => {
     const [signInWithGoogle, Guser, Gloading, Gerror] = useSignInWithGoogle(auth);
+    const provider = new GoogleAuthProvider();
     const [
         signInWithEmailAndPassword,
         user,
@@ -35,6 +37,17 @@ const Login = () => {
     if(token){
       Navigate(from , {replace:true})
     }
+
+    const googleSignIn = () =>{
+      signInWithPopup(auth,provider)
+      .then(result =>{
+          Navigate('/home')
+      })
+      .catch(error =>{
+        alert(error.message)
+      })
+  }
+    
     return (
         <div className='LogIn hero min-h-screen '>
     <form onSubmit={handleSubmit(onSubmit)} class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100  login-from">
@@ -60,7 +73,7 @@ const Login = () => {
         <p className="text-white">{Error}</p>
       </div>
       <p className='text-white'>---------------------------or---------------------------</p>
-      <button onClick={() => signInWithGoogle()} class="btn btn-primary uppercase font-bold bg-gradient-to-r from-accent to-primary hover:from-pink-500 hover:to-yellow-500 rounded-3xl hover:text-primary mb-5">Continue With Google</button>
+      <button onClick={googleSignIn} class="btn btn-primary uppercase font-bold bg-gradient-to-r from-accent to-primary hover:from-pink-500 hover:to-yellow-500 rounded-3xl hover:text-primary mb-5">Continue With Google</button>
       </form>
       </div>
     );
